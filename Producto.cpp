@@ -1,17 +1,25 @@
 #include "Producto.h"
-
+/*
 Producto::Producto(){
 	nombre = " ";
 	codigo = 0;
 	precio = 0;
 	en_oferta = 0;
-} 
+}*/
 
 Producto::Producto(string nuevo_nombre,int nuevo_codigo,int nuevo_precio,bool nuevo_en_oferta){
 	nombre = nuevo_nombre;
 	codigo = nuevo_codigo;
 	precio = nuevo_precio;
 	en_oferta = nuevo_en_oferta;
+}
+
+Producto& Producto::operator=(const Producto &p){
+    this->nombre = p.obtener_nombre();
+    this->codigo = p.obtener_codigo();
+    this->precio = p.obtener_precio();
+    this->en_oferta = p.obtener_oferta();
+    return *this;
 }
 
 string Producto::obtener_nombre(){
