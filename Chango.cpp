@@ -27,8 +27,11 @@ void Chango::asignar_productos(Producto* nuevos_productos){
 }
 
 void Chango::cargar_producto(Producto producto_a_cargar){
+	
 	productos[cant_productos] = producto_a_cargar;
 	cant_productos++;
+
+	cout<<"El producto fue agregado al chango"<<endl;
 }
 
 int Chango::monto_a_pagar(){
@@ -47,6 +50,15 @@ int Chango::ahorro_total(){
 		}
 	}
 	return ahorro;
+}
+
+bool Chango::esta_lleno(int cant_prod_gondola){
+
+	if(cant_productos == cant_prod_gondola){
+		cout<<"El chango esta lleno,no puede ingresar mas productos"<<endl;
+		return true;
+	}
+	return false;
 }
 
 Chango::~Chango(){

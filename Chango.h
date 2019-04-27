@@ -49,6 +49,10 @@ public:
 	//Post:Devuelve el ahorro total de la compra
 	int ahorro_total();
 
+	//Pre:El parametro debe ser la cantidad de productos que hay en la gondola,que sera el tope del vector de productos del chango
+	//Posr:deuelve true si el chango esta lleno o false en caso contrario
+	bool esta_lleno(int cant_prod_gondola);
+
 	//Descripcion:Destructor del chango
 	//Pre:El chango debe existir
 	//Post:El chango fue destruido,es decir la memoria utilizada fue liberada
