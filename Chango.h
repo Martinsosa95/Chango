@@ -36,7 +36,7 @@ public:
 
 	//Pre:El chango y el producto a agregar deben existir
 	//Post:El producto fue agregado al chango
-	void cargar_producto(Producto producto_a_cargar);
+	void cargar_producto(Producto *producto_a_cargar);
 
 	//Pre:El chango debe existir
 	//Post:Devuelve la suma de los precios finales de los productos del chango

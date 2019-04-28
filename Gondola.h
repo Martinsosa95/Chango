@@ -19,9 +19,11 @@ class Gondola{
 		Gondola(int nueva_cant_productos);
 
         void asignar_seleccion(int seleccion);
-        
-        Producto obtener_producto();
-		
+
+        Producto obtener_producto() const;
+
+        int obtener_producto_seleccionado();
+
 		//Pre:Se debe poder leer el archivo ingresado con el formato debido,es decir debera tener un producto por linea.
 		//Pos:Devuelve la cantidad total de productos leidos del archivo.
 		void asignar_cant_productos(int cantidad);
@@ -36,10 +38,10 @@ class Gondola{
 		Producto* obtener_productos();
 		//Pre:Tiene que estar creado el objeto gondola.
 		//Pos:Va a devolver la informacion completa del producto si es que se encuentra en la gondola.
-		Producto buscar_nombre(string nombre);
+		int buscar_nombre(string nombre);
 		//Pre:Tiene que estar creado el objeto gondola.
 		//Pos:Va a devolver la informacion completa del producto si es que se encuentra en la gondola.
-		Producto buscar_codigo(int codigo);
+		int buscar_codigo(int codigo);
 		//Pre:Tiene que estar creado el objeto gondola.
 		//Pos:Va a "eliminar" los productos del producto deseado.
 		void quitar_producto(Producto producto);

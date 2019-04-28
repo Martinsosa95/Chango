@@ -8,7 +8,8 @@ Gondola::Gondola(int nueva_cant_productos){
 }
 
 void Gondola::asignar_seleccion(int seleccion){
-    producto_seleccionado = seleccion;
+    if(seleccion >= 0)
+        producto_seleccionado = seleccion;
 }
 
 void Gondola::asignar_cant_productos(int cantidad){
@@ -17,7 +18,10 @@ void Gondola::asignar_cant_productos(int cantidad){
 
 void Gondola::asignar_productos(Producto* nuevos_productos){
 	productos[producto_seleccionado].igualar_productos(*nuevos_productos);
+}
 
+int Gondola::obtener_producto_seleccionado(){
+    return producto_seleccionado;
 }
 
 int Gondola::obtener_cant_productos(){
@@ -28,13 +32,13 @@ Producto* Gondola::obtener_productos(){
 	return productos;
 }
 
-Producto Gondola::obtener_producto(){
+Producto Gondola::obtener_producto() const{
     return productos[producto_seleccionado];
 }
 
-Producto Gondola::buscar_nombre(string nombre){
+int Gondola::buscar_nombre(string nombre){
 	int pos_producto;
-	bool esta;
+	bool esta = false;
 
 	for(int i=0;i<cant_productos;i++){
 		if(productos[i].obtener_nombre() == nombre){
@@ -49,17 +53,16 @@ Producto Gondola::buscar_nombre(string nombre){
         cout<<"precio: "<< productos[pos_producto].obtener_precio() << " $"<<endl;
         cout<<"esta en oferta? (1/0): "<< productos[pos_producto].obtener_oferta() <<endl;
 
-        return productos[pos_producto]; // preguntar si esta bien devolver algo tipo producto.
+        return pos_producto;
     }else{
 		cout<< "El producto no se encuentra en la gondola"<< endl;
-		Producto producto_no_encontrado = Producto();
-		return producto_no_encontrado;
+		return -1; // que devovler cuando no esta?
 	}
 }
 
-Producto Gondola::buscar_codigo(int codigo){
+int Gondola::buscar_codigo(int codigo){
 	int pos_producto;
-	bool esta;
+	bool esta = false;
 
 	for(int i=0;i<cant_productos;i++){
 		if(productos[i].obtener_codigo() == codigo){
@@ -74,11 +77,10 @@ Producto Gondola::buscar_codigo(int codigo){
         cout<<"precio: "<< productos[pos_producto].obtener_precio() << " $"<<endl;
         cout<<"esta en oferta? (1/0): "<< productos[pos_producto].obtener_oferta() <<endl;
 
-        return productos[pos_producto]; // preguntar si esta bien devolver algo tipo producto.
+        return pos_producto; // preguntar si esta bien devolver algo tipo producto.
 	}else{
 		cout<< "El producto no se encuentra en la gondola"<< endl;
-		Producto producto_no_encontrado = Producto();
-		return producto_no_encontrado;
+		return -1;
 	}
 
 }
@@ -95,9 +97,10 @@ void Gondola::quitar_producto(Producto producto){
 	producto.asignar_oferta(oferta_eliminada);
     cant_productos--;
 
+    cout<< "El producto fue eliminado de la gondola"<< endl;
 }
 
 Gondola::~Gondola(){
-	delete [] productos;
+    delete [] productos;
 	cout<<"Se ha borrado el vector dinamico productos de Gondola"<<endl;
 }

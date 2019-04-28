@@ -3,7 +3,7 @@
 
 Chango::Chango(int nueva_cant_productos){
 	cant_productos = 0;
-	cout<<"Se crea el vector dinamico"<<endl;
+	cout<<"Se crea el vector dinamico Chango"<<endl;
 	productos = new Producto [cant_productos];
 	producto_seleccionado = 0;
 }
@@ -32,10 +32,11 @@ void Chango::asignar_productos(Producto* nuevos_productos){
     producto_seleccionado ++;
 }
 
-void Chango::cargar_producto(Producto producto_a_cargar){
-
-	productos[cant_productos] = producto_a_cargar;
-	cant_productos++;
+void Chango::cargar_producto(Producto *producto_a_cargar){
+    cout<<"Producto seleccionado : "<< producto_seleccionado<<endl;
+	productos[producto_seleccionado].igualar_productos(*producto_a_cargar);
+	cout<<"Se rompe"<<endl;
+	producto_seleccionado++;
 
 	cout<<"El producto fue agregado al chango"<<endl;
 }

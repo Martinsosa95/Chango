@@ -73,20 +73,22 @@ int main(){
                 cout<<"ingrese el codigo del producto que desea buscar"<<endl;
                 cin>>codigo_a_buscar;
 
-                producto_codigo.asignar_codigo(gondola.buscar_codigo(codigo_a_buscar).obtener_codigo());
+                gondola.buscar_codigo(codigo_a_buscar);
             }
                 break;
 
             case'c':
             {
-                Producto producto_a_modificar = tipo_busqueda(gondola);
-                modificar_precio(producto_a_modificar);
+                int pos_producto = tipo_busqueda(gondola);
+                modificar_precio(gondola,pos_producto);
             }
                 break;
 
             case 'd':
             {
-                Producto producto_a_quitar = tipo_busqueda(gondola);
+                tipo_busqueda(gondola);
+                Producto producto_a_quitar;
+                producto_a_quitar.igualar_productos(gondola.obtener_producto());
                 gondola.quitar_producto(producto_a_quitar);
             }
                 break;
@@ -100,11 +102,17 @@ int main(){
 
             case'f':
             {
-                Chango chango(cant_productos);  // creo el chango //
+                Chango chango(cant_productos);
+                cout<<"cant_productos: "<<cant_productos<<endl;  // creo el chango //
                 bool agregar_prod = 1;
                 while(agregar_prod && !chango.esta_lleno(cant_productos)){
+                    Producto aux;
                     cout<<"Busque el producto de la gondola que desea agregar"<<endl;
-                    chango.cargar_producto(tipo_busqueda(gondola));
+                    cout<<"el vector del chango esta en :"<<chango.obtener_producto_seleccionado()<<endl;
+                    tipo_busqueda(gondola);
+                    cout<<"el vector de gondola esta en :"<<gondola.obtener_producto_seleccionado()<<endl;
+                    aux.igualar_productos(gondola.obtener_producto());
+                    chango.cargar_producto(&aux);
                     cout<<"Si desea agregar otro producto ingrese 1"<<endl;
                     cin>>agregar_prod;
                 }
@@ -123,6 +131,7 @@ int main(){
     cin>> continuar_operando;
 
     }
+
 
     //~gondola; // LLAMAR AL DESTURCTOR DE LA GONDOLA, SE LLAMA SOLO?//
 

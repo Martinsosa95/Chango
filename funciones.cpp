@@ -17,7 +17,7 @@ Gondola crear_gondola(int cant_productos){
     return gondola;
 }
 
-void cargar_gondola(ifstream &archivo, Gondola gondola){
+void cargar_gondola(ifstream &archivo, Gondola &gondola){
 
     int pos_gondola = 0;
     Producto producto_a_ingresar;
@@ -44,9 +44,9 @@ void cargar_gondola(ifstream &archivo, Gondola gondola){
     }
 }
 
-Producto tipo_busqueda(Gondola gondola){
+int tipo_busqueda(Gondola &gondola){
     char busqueda;
-    Producto producto_a_obtener;
+    int pos_producto;
 
     cout<< "ingrese n si desea buscar el producto por su nombre o c si lo desea hacer por codigo de barras"<<endl;
     cin>>busqueda;
@@ -64,7 +64,10 @@ Producto tipo_busqueda(Gondola gondola){
 
         cout<<"ingrese el nombre del producto que desea buscar"<<endl;
         cin>>producto_a_buscar;
-        producto_a_obtener.igualar_productos((gondola.buscar_nombre(producto_a_buscar)));
+        pos_producto = gondola.buscar_nombre(producto_a_buscar);
+        if(pos_producto >= 0)
+            gondola.asignar_seleccion(pos_producto);
+
 
     }else{
 
@@ -72,15 +75,16 @@ Producto tipo_busqueda(Gondola gondola){
 
         cout<<"ingrese el codigo del producto del producto que desea buscar "<<endl;
         cin>>codigo_a_buscar;
-        producto_a_obtener = (gondola.buscar_codigo(codigo_a_buscar));
-
+        pos_producto = gondola.buscar_codigo(codigo_a_buscar);
+        if(pos_producto >= 0)
+            gondola.asignar_seleccion(pos_producto);
     }
 
-    return producto_a_obtener;
+    return pos_producto;
 
 }
 
-void modificar_precio(Producto producto_a_modificar){
+void modificar_precio(Gondola &gondola, int pos_producto){
 
     int nuevo_precio;
 
@@ -93,19 +97,20 @@ void modificar_precio(Producto producto_a_modificar){
         cout<<"ingrese el nuevo precio del producto"<<endl;
         cin>>nuevo_precio;
     }
-    producto_a_modificar.asignar_precio(nuevo_precio);
-    cout<< "el nuevo precio del producto es "<< producto_a_modificar.obtener_precio()<<" $"<<endl;
+    gondola.asignar_seleccion(pos_producto);
+    gondola.obtener_productos()->asignar_precio(nuevo_precio);
+    cout<< "el nuevo precio del producto es "<< (gondola.obtener_producto()).obtener_precio()<<" $"<<endl;
 
 }
 
-int cantidad_en_oferta(Gondola gondola){
+int cantidad_en_oferta(Gondola &gondola){
 
     int cant_prod_oferta = 0;
 
     for(int i = 0; i<gondola.obtener_cant_productos();i++){
         gondola.asignar_seleccion(i);
 
-        if(gondola.obtener_producto().obtener_oferta()){
+        if((gondola.obtener_producto()).obtener_oferta()){
             cant_prod_oferta++;
         }
     }
