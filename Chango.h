@@ -12,11 +12,6 @@ private:
 	Producto *productos;
 	int producto_seleccionado;
 public:
-	//Descripcion:Constructor por defecto
-	//Pre: ---
-	//Post:crea un objeto chango,asignando el valor 0 a cant_productos y asigna NULL a productos
-	Chango();
-
 	//Descripcion:Constructor con parametros
 	//Pre:nueva_cant_productos debe ser un entero mayor o igual a cero y menor o igual al tamanio de la gondola
 	//Post:crea un objeto chango,del tamanio pasado por parametro
