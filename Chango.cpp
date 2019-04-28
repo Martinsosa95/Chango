@@ -1,14 +1,11 @@
 #include "Chango.h"
 
-Chango::Chango(){
-	cant_productos = 0;
-	productos = NULL;
-	producto_seleccionado = 0;
-}
 
 Chango::Chango(int nueva_cant_productos){
 	cant_productos = 0;
+	cout<<"Se crea el vector dinamico"<<endl;
 	productos = new Producto [cant_productos];
+	producto_seleccionado = 0;
 }
 
 int Chango::obtener_cant_productos(){
@@ -48,6 +45,7 @@ int Chango::monto_a_pagar(){
 	for (int i = 0; i < cant_productos; ++i){
 		total += productos[i].calcular_precio_final();
 	}
+	cout<<"El monto a pagar es :"<< total<< " $"<<endl;
 	return total;
 }
 
@@ -58,6 +56,7 @@ int Chango::ahorro_total(){
 			ahorro+= productos[i].obtener_precio() - productos[i].calcular_precio_final();
 		}
 	}
+	cout<<"Usted ahorro :"<< ahorro << " $"<<endl;
 	return ahorro;
 }
 
@@ -72,4 +71,5 @@ bool Chango::esta_lleno(int cant_prod_gondola){
 
 Chango::~Chango(){
 	delete [] productos;
+	cout<<"Se ha borrado el vector dinamico productos de Chango"<<endl;
 }

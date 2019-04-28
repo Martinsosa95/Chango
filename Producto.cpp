@@ -1,11 +1,11 @@
 #include "Producto.h"
-/*
+
 Producto::Producto(){
 	nombre = " ";
 	codigo = 0;
 	precio = 0;
 	en_oferta = 0;
-}*/
+}
 
 Producto::Producto(string nuevo_nombre,int nuevo_codigo,int nuevo_precio,bool nuevo_en_oferta){
 	nombre = nuevo_nombre;
@@ -14,12 +14,11 @@ Producto::Producto(string nuevo_nombre,int nuevo_codigo,int nuevo_precio,bool nu
 	en_oferta = nuevo_en_oferta;
 }
 
-Producto& Producto::operator=(const Producto &p){
-    this->nombre = p.obtener_nombre();
-    this->codigo = p.obtener_codigo();
-    this->precio = p.obtener_precio();
-    this->en_oferta = p.obtener_oferta();
-    return *this;
+void Producto::igualar_productos(Producto p){
+    nombre = p.obtener_nombre();
+    codigo = p.obtener_codigo();
+    precio = p.obtener_precio();
+    en_oferta = p.obtener_oferta();
 }
 
 string Producto::obtener_nombre(){

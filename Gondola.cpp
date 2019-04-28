@@ -1,14 +1,9 @@
 #include "Gondola.h"
 
-Gondola::Gondola(){
-	cant_productos = 0;
-	producto_seleccionado = 0;
-	productos = NULL;
-}
 
 Gondola::Gondola(int nueva_cant_productos){
 	cant_productos = nueva_cant_productos;
-	productos = new Producto[cant_productos];
+	productos = new Producto[nueva_cant_productos];
 	producto_seleccionado = 0;
 }
 
@@ -21,8 +16,8 @@ void Gondola::asignar_cant_productos(int cantidad){
 }
 
 void Gondola::asignar_productos(Producto* nuevos_productos){
-	productos[producto_seleccionado] = *nuevos_productos;
-	producto_seleccionado ++;
+	productos[producto_seleccionado].igualar_productos(*nuevos_productos);
+
 }
 
 int Gondola::obtener_cant_productos(){
@@ -98,10 +93,11 @@ void Gondola::quitar_producto(Producto producto){
 	producto.asignar_codigo(codigo_eliminado);
 	producto.asignar_precio(precio_eliminado);
 	producto.asignar_oferta(oferta_eliminada);
-
+    cant_productos--;
 
 }
 
 Gondola::~Gondola(){
 	delete [] productos;
+	cout<<"Se ha borrado el vector dinamico productos de Gondola"<<endl;
 }
