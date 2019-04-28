@@ -2,10 +2,9 @@
 #define FUNCIONES_H
 
 
-#include <iostream>
+//#include <iostream>
 #include <cstring>
-#include <fstream>
-#include <sstream>
+//#include <fstream>
 #include <string>
 #include <cstring>
 #include <cmath>

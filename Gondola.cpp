@@ -1,10 +1,5 @@
 #include "Gondola.h"
 
-Gondola::Gondola(){
-	cant_productos = 0;
-	producto_seleccionado = 0;
-	productos = NULL;
-}
 
 Gondola::Gondola(int nueva_cant_productos){
 	cant_productos = nueva_cant_productos;
