@@ -32,9 +32,9 @@ Producto Gondola::obtener_producto(){
     return productos[producto_seleccionado];
 }
 
-Producto Gondola::buscar_nombre(string nombre){
+int Gondola::buscar_nombre(string nombre){
 	int pos_producto;
-	bool esta;
+	bool esta = false;
 
 	for(int i=0;i<cant_productos;i++){
 		if(productos[i].obtener_nombre() == nombre){
@@ -49,17 +49,17 @@ Producto Gondola::buscar_nombre(string nombre){
         cout<<"precio: "<< productos[pos_producto].obtener_precio() << " $"<<endl;
         cout<<"esta en oferta? (1/0): "<< productos[pos_producto].obtener_oferta() <<endl;
 
-        return productos[pos_producto]; // preguntar si esta bien devolver algo tipo producto.
+        return pos_producto; 
     }else{
 		cout<< "El producto no se encuentra en la gondola"<< endl;
 		Producto producto_no_encontrado = Producto();
-		return producto_no_encontrado;
+		return 0; // que devovler cuando no esta?
 	}
 }
 
-Producto Gondola::buscar_codigo(int codigo){
+int Gondola::buscar_codigo(int codigo){
 	int pos_producto;
-	bool esta;
+	bool esta = false;
 
 	for(int i=0;i<cant_productos;i++){
 		if(productos[i].obtener_codigo() == codigo){
@@ -74,11 +74,10 @@ Producto Gondola::buscar_codigo(int codigo){
         cout<<"precio: "<< productos[pos_producto].obtener_precio() << " $"<<endl;
         cout<<"esta en oferta? (1/0): "<< productos[pos_producto].obtener_oferta() <<endl;
 
-        return productos[pos_producto]; // preguntar si esta bien devolver algo tipo producto.
+        return pos_producto; // preguntar si esta bien devolver algo tipo producto.
 	}else{
 		cout<< "El producto no se encuentra en la gondola"<< endl;
-		Producto producto_no_encontrado = Producto();
-		return producto_no_encontrado;
+		return 0;
 	}
 
 }
@@ -95,9 +94,10 @@ void Gondola::quitar_producto(Producto producto){
 	producto.asignar_oferta(oferta_eliminada);
     cant_productos--;
 
+    cout<< "El producto fue eliminado de la gondola"<< endl;
 }
 
-Gondola::~Gondola(){
-	delete [] productos;
-	cout<<"Se ha borrado el vector dinamico productos de Gondola"<<endl;
-}
+//Gondola::~Gondola(){
+//	delete [] productos;
+//	cout<<"Se ha borrado el vector dinamico productos de Gondola"<<endl;
+//}

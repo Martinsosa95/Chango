@@ -23,10 +23,10 @@ Gondola crear_gondola(int cant_productos);
 //Pos:Se ca a devolver el producto que se queria buscar.
 void cargar_gondola(ifstream &archivo, Gondola gondola);
 
-Producto tipo_busqueda(Gondola gondola);
+int tipo_busqueda(Gondola gondola);
 //Pre:Se debe encontrar el producto al cual se desea modificar su precio.
 //Pos:Se va a mostrar por pantalla el producto con el precio modificado.
-void modificar_precio(Producto producto_a_modificar);
+void modificar_precio(Gondola gondola, int pos_producto);
 //Pre:Debe estar creada una gondola.
 //Pos:Se va a devolver la cantidad de productos que estan en oferta.
 int cantidad_en_oferta(Gondola gondola);

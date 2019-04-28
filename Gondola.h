@@ -36,17 +36,17 @@ class Gondola{
 		Producto* obtener_productos();
 		//Pre:Tiene que estar creado el objeto gondola.
 		//Pos:Va a devolver la informacion completa del producto si es que se encuentra en la gondola.
-		Producto buscar_nombre(string nombre);
+		int buscar_nombre(string nombre);
 		//Pre:Tiene que estar creado el objeto gondola.
 		//Pos:Va a devolver la informacion completa del producto si es que se encuentra en la gondola.
-		Producto buscar_codigo(int codigo);
+		int buscar_codigo(int codigo);
 		//Pre:Tiene que estar creado el objeto gondola.
 		//Pos:Va a "eliminar" los productos del producto deseado.
 		void quitar_producto(Producto producto);
 		//Descripcion:Destructor de la gndola
 		//Pre:La gondola debe existir
 		//Post:La gondola fue destruida,es decir la memoria utilizada fue liberada
-		~Gondola();
+		//~Gondola();
 };
 
 
