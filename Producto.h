@@ -25,7 +25,8 @@ public:
 	//Post:crea un objeto producto,asignando a cada atributo los parametros pasados
 	Producto(string nuevo_nombre,int nuevo_codigo,int nuevo_precio,bool nuevo_en_oferta);
 
-	Producto &operator=(const Producto &p);
+	// ACLARAR QUE ES ESTO QE HACE PRE Y POSTCONDICIONES//
+	void igualar_productos(Producto p);
 
 	//Pre:El objeto producto debe existir
 	//Post:Devuelve el nombre del producto

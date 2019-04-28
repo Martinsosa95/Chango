@@ -2,10 +2,19 @@
 
 
 
-int main(int argc, char *argv[]){
+int main(){
 
 
-    ifstream archivo = abrir_archivo("productos.txt");
+    ifstream archivo ;
+
+
+    archivo.open("productos.txt");
+
+    if(archivo.fail()){
+        cout<< "No se pudo abrir el archivo"<< endl;
+        return 0; //CORTO EL PROGRAMA YA QUE NO SE PUDO ABRIR EL ARCHIVO//
+    }
+    
     int cant_productos = calcular_cant_productos(archivo);
     Gondola gondola = crear_gondola (cant_productos);
     cargar_gondola(archivo,gondola);
@@ -45,13 +54,12 @@ int main(int argc, char *argv[]){
 
             case 'a':
             {
-                string nombre_a_buscar;
-                Producto producto_nombre;
+                string nombre_a_buscar;               
 
                 cout<<"ingrese el nombre del producto que desea buscar"<<endl;
                 cin>>nombre_a_buscar;
 
-                producto_nombre.asignar_nombre(gondola.buscar_nombre(nombre_a_buscar).obtener_nombre());
+                gondola.buscar_nombre(nombre_a_buscar);
             }
                 break;
 
@@ -83,6 +91,7 @@ int main(int argc, char *argv[]){
 
 
             case 'e':
+                
                 cantidad_en_oferta(gondola);
 
                 break;
@@ -98,8 +107,8 @@ int main(int argc, char *argv[]){
                     cin>>agregar_prod;
                 }
 
-                cout<<"El monto a pagar es :"<< chango.monto_a_pagar() << " $"<<endl;
-                cout<<"Usted ahorro :"<< chango.ahorro_total() << " $"<<endl;
+                chango.monto_a_pagar();
+                chango.ahorro_total();
 
                 //~chango; // LLAMAR AL DESTRUCTOR DEL CHANGO,SE LLAMA SOLO?//
             }

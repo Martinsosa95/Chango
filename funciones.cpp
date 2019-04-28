@@ -1,25 +1,11 @@
 #include "funciones.h"
 
 
-ifstream abrir_archivo(string nom_archivo){
-
-    ifstream entrada;
-
-    entrada.open("nom_archivo");
-
-    if(entrada.fail()){
-        cout<< "No se pudo abrir el archivo"<< endl;
-    }
-
-    return entrada;
-}
-
-
 int calcular_cant_productos(ifstream &archivo){
 
     string linea;
     int cant_productos = 0;
-        while (!archivo.eof()){
+        while (getline(archivo,linea)){
             cant_productos++;
         }
 
@@ -50,6 +36,7 @@ void cargar_gondola(ifstream &archivo, Gondola gondola){
         producto_a_ingresar.asignar_precio(atoi(precio.c_str()));
         producto_a_ingresar.asignar_oferta(atoi(oferta.c_str()));
 
+        gondola.asignar_seleccion(pos_gondola);
         gondola.asignar_productos(&producto_a_ingresar);
         pos_gondola ++;
     }
@@ -58,8 +45,7 @@ void cargar_gondola(ifstream &archivo, Gondola gondola){
 Producto tipo_busqueda(Gondola gondola){
     char busqueda;
     Producto producto_a_obtener;
-    int nuevo_precio;
-
+ 
     cout<< "ingrese n si desea buscar el producto por su nombre o c si lo desea hacer por codigo de barras"<<endl;
     cin>>busqueda;
 
@@ -76,7 +62,7 @@ Producto tipo_busqueda(Gondola gondola){
 
         cout<<"ingrese el nombre del producto que desea buscar"<<endl;
         cin>>producto_a_buscar;
-        producto_a_obtener = gondola.buscar_nombre(producto_a_buscar);
+        producto_a_obtener.igualar_productos((gondola.buscar_nombre(producto_a_buscar)));
 
     }else{
 
@@ -84,7 +70,7 @@ Producto tipo_busqueda(Gondola gondola){
 
         cout<<"ingrese el codigo del producto del producto que desea buscar "<<endl;
         cin>>codigo_a_buscar;
-        producto_a_obtener = gondola.buscar_codigo(codigo_a_buscar);
+        producto_a_obtener = (gondola.buscar_codigo(codigo_a_buscar));
 
     }
 
@@ -116,7 +102,10 @@ int cantidad_en_oferta(Gondola gondola){
 
     for(int i = 0; i<gondola.obtener_cant_productos();i++){
         gondola.asignar_seleccion(i);
-        if(gondola.obtener_producto().obtener_oferta()) cant_prod_oferta++;
+        
+        if(gondola.obtener_producto().obtener_oferta()){
+            cant_prod_oferta++;    
+        } 
     }
 
     cout<<"la cantidad de productos en oferta es "<<cant_prod_oferta<<endl;

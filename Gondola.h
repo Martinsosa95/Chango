@@ -13,17 +13,15 @@ class Gondola{
 		Producto* productos;
 		int producto_seleccionado;
 	public:
-		//Descripcion: constructor por defecto
-		//Pre: ---
-		//Pos: Se asigna por defecto una cantidad total de 0 productos y un vector con un puntero a NULL
-		Gondola();
 		//Descripcion: constructor por parametros
 		//Pre: ---
 		//Pos: se creo la gondola con los valores indicados en los parametros.
 		Gondola(int nueva_cant_productos);
 
         void asignar_seleccion(int seleccion);
+        
         Producto obtener_producto();
+		
 		//Pre:Se debe poder leer el archivo ingresado con el formato debido,es decir debera tener un producto por linea.
 		//Pos:Devuelve la cantidad total de productos leidos del archivo.
 		void asignar_cant_productos(int cantidad);
@@ -45,11 +43,10 @@ class Gondola{
 		//Pre:Tiene que estar creado el objeto gondola.
 		//Pos:Va a "eliminar" los productos del producto deseado.
 		void quitar_producto(Producto producto);
-		//Descripcion:Destructor de la gondola
+		//Descripcion:Destructor de la gndola
 		//Pre:La gondola debe existir
 		//Post:La gondola fue destruida,es decir la memoria utilizada fue liberada
 		~Gondola();
-
 };
 
 

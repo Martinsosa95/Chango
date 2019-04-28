@@ -1,14 +1,9 @@
 #include "Gondola.h"
 
-Gondola::Gondola(){
-	cant_productos = 0;
-	producto_seleccionado = 0;
-	productos = NULL;
-}
 
 Gondola::Gondola(int nueva_cant_productos){
 	cant_productos = nueva_cant_productos;
-	productos = new Producto[cant_productos];
+	productos = new Producto[nueva_cant_productos];
 	producto_seleccionado = 0;
 }
 
@@ -22,7 +17,7 @@ void Gondola::asignar_cant_productos(int cantidad){
 
 void Gondola::asignar_productos(Producto* nuevos_productos){
 	productos[producto_seleccionado] = *nuevos_productos;
-	producto_seleccionado ++;
+	
 }
 
 int Gondola::obtener_cant_productos(){
