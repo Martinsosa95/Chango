@@ -13,10 +13,6 @@ class Gondola{
 		Producto* productos;
 		int producto_seleccionado;
 	public:
-		//Descripcion: constructor por defecto
-		//Pre: ---
-		//Pos: Se asigna por defecto una cantidad total de 0 productos y un vector con un puntero a NULL
-		Gondola();
 		//Descripcion: constructor por parametros
 		//Pre: ---
 		//Pos: se creo la gondola con los valores indicados en los parametros.
@@ -45,11 +41,10 @@ class Gondola{
 		//Pre:Tiene que estar creado el objeto gondola.
 		//Pos:Va a "eliminar" los productos del producto deseado.
 		void quitar_producto(Producto producto);
-		//Descripcion:Destructor de la gondola
+		//Descripcion:Destructor de la gndola
 		//Pre:La gondola debe existir
 		//Post:La gondola fue destruida,es decir la memoria utilizada fue liberada
 		~Gondola();
-
 };
 
 

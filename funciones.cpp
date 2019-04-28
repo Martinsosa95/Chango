@@ -5,10 +5,11 @@ ifstream abrir_archivo(string nom_archivo){
 
     ifstream entrada;
 
-    entrada.open("nom_archivo");
+    entrada.open(nom_archivo);
 
     if(entrada.fail()){
         cout<< "No se pudo abrir el archivo"<< endl;
+        // ACA NO HABRIA QUE AGREGAR UN REUTRN? OSEA QUE DEVUELVA ALGO TIPO NULL O ALGO ASI?//
     }
 
     return entrada;

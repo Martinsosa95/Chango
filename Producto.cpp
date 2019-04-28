@@ -14,7 +14,7 @@ Producto::Producto(string nuevo_nombre,int nuevo_codigo,int nuevo_precio,bool nu
 	en_oferta = nuevo_en_oferta;
 }
 
-Producto& Producto::operator=(const Producto &p){
+Producto & Producto::operator=(Producto &p){
     this->nombre = p.obtener_nombre();
     this->codigo = p.obtener_codigo();
     this->precio = p.obtener_precio();
