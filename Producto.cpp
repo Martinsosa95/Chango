@@ -15,7 +15,6 @@ Producto::Producto(string nuevo_nombre,int nuevo_codigo,int nuevo_precio,bool nu
 }
 
 void Producto::igualar_productos(Producto p){
-    cout<<"igualacion de productos"<<endl;
     nombre = p.obtener_nombre();
     codigo = p.obtener_codigo();
     precio = p.obtener_precio();
@@ -56,7 +55,7 @@ void Producto::asignar_oferta(bool nuevo_en_oferta){
 
 int Producto::calcular_precio_final(){
 	if (en_oferta){
-		return 90/100 * precio;
+		return (90*precio)/100;
 	}
 	else{
 		return precio;

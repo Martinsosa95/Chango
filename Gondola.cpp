@@ -56,7 +56,7 @@ int Gondola::buscar_nombre(string nombre){
         return pos_producto;
     }else{
 		cout<< "El producto no se encuentra en la gondola"<< endl;
-		return -1; // que devovler cuando no esta?
+		return -1; 
 	}
 }
 
@@ -77,7 +77,8 @@ int Gondola::buscar_codigo(int codigo){
         cout<<"precio: "<< productos[pos_producto].obtener_precio() << " $"<<endl;
         cout<<"esta en oferta? (1/0): "<< productos[pos_producto].obtener_oferta() <<endl;
 
-        return pos_producto; // preguntar si esta bien devolver algo tipo producto.
+        return pos_producto; 
+        
 	}else{
 		cout<< "El producto no se encuentra en la gondola"<< endl;
 		return -1;
@@ -102,5 +103,4 @@ void Gondola::quitar_producto(Producto producto){
 
 Gondola::~Gondola(){
     delete [] productos;
-	cout<<"Se ha borrado el vector dinamico productos de Gondola"<<endl;
 }
