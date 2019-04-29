@@ -32,11 +32,11 @@ void Chango::asignar_productos(Producto* nuevos_productos){
     producto_seleccionado ++;
 }
 
-void Chango::cargar_producto(Producto *producto_a_cargar){
+void Chango::cargar_producto(Producto producto_a_cargar){
     cout<<"Producto seleccionado : "<< producto_seleccionado<<endl;
-	productos[producto_seleccionado].igualar_productos(*producto_a_cargar);
-	cout<<"Se rompe"<<endl;
+	productos[producto_seleccionado] = producto_a_cargar;
 	producto_seleccionado++;
+	cant_productos++;
 
 	cout<<"El producto fue agregado al chango"<<endl;
 }

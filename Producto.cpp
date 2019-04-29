@@ -56,7 +56,7 @@ void Producto::asignar_oferta(bool nuevo_en_oferta){
 
 int Producto::calcular_precio_final(){
 	if (en_oferta){
-		return 90/100 * precio;
+		return (90*precio)/100;
 	}
 	else{
 		return precio;

@@ -111,8 +111,7 @@ int main(){
                     cout<<"el vector del chango esta en :"<<chango.obtener_producto_seleccionado()<<endl;
                     tipo_busqueda(gondola);
                     cout<<"el vector de gondola esta en :"<<gondola.obtener_producto_seleccionado()<<endl;
-                    aux.igualar_productos(gondola.obtener_producto());
-                    chango.cargar_producto(&aux);
+                    chango.cargar_producto(gondola.obtener_productos()[gondola.obtener_producto_seleccionado()]);
                     cout<<"Si desea agregar otro producto ingrese 1"<<endl;
                     cin>>agregar_prod;
                 }
