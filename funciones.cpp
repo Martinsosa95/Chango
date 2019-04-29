@@ -21,10 +21,8 @@ void cargar_gondola(ifstream &archivo, Gondola &gondola){
 
     int pos_gondola = 0;
     Producto producto_a_ingresar;
-    cout<<"Sobrevive aca?"<<endl;
 
     while (!archivo.eof()){
-        cout<<"El archivo se abre?"<<endl;
         string codigo;
         string nombre;
         string precio;
@@ -40,7 +38,7 @@ void cargar_gondola(ifstream &archivo, Gondola &gondola){
         gondola.asignar_seleccion(pos_gondola);
         gondola.asignar_productos(&producto_a_ingresar);
         pos_gondola ++;
-        cout<<"Aca se destruyo?"<<endl;
+    
     }
 }
 

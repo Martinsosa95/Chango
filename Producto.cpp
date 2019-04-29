@@ -15,7 +15,6 @@ Producto::Producto(string nuevo_nombre,int nuevo_codigo,int nuevo_precio,bool nu
 }
 
 void Producto::igualar_productos(Producto p){
-    cout<<"igualacion de productos"<<endl;
     nombre = p.obtener_nombre();
     codigo = p.obtener_codigo();
     precio = p.obtener_precio();

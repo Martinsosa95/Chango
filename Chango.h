@@ -24,8 +24,15 @@ public:
 	//Pre:El objeto chango debe existir
 	//Post:Devuelve el puntero a los productos del chango
 	Producto* obtener_productos();
+    
+    //Pre:El objeto chango debe existir
+    //Post:Devuelve el valor del atributo producto_seleccionado
     int obtener_producto_seleccionado();
+    
+    //Pre:El objeto chango debe existir y el parametro debe ser un entero mayor o igual a cero
+    //Post:Se modifico el atributo producto_seleccionado del chango
     void asignar_seleccion_producto(int seleccion);
+	
 	//Pre:El objeto chango debe existir y el parametro debe ser un entero mayor o igual a 0 y menor o igual al tamanio de la gondola
 	//Post:Se cambio la cantidad de productos del chango
 	void asignar_cant_productos(int nueva_cant_productos);

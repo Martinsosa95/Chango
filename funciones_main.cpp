@@ -8,7 +8,7 @@ int main(){
     ifstream archivo ;
 
 
-    archivo.open("productos.txt");
+    archivo.open("productos.txt"); //APERTURA DEL ARCHIVO DE PRODUCTOS//
 
     if(archivo.fail()){
         cout<< "No se pudo abrir el archivo"<< endl;
@@ -16,7 +16,7 @@ int main(){
     }
 
     int cant_productos = calcular_cant_productos(archivo);
-    Gondola gondola(cant_productos);
+    Gondola gondola(cant_productos); //SE CREA EL OBJETO GONDOLA//
     archivo.clear();
     archivo.seekg(0);
     cargar_gondola(archivo,gondola);
@@ -102,16 +102,16 @@ int main(){
 
             case'f':
             {
-                Chango chango(cant_productos);
-                cout<<"cant_productos: "<<cant_productos<<endl;  // creo el chango //
+                signed int resultado_busqueda;
+                Chango chango(cant_productos); // SE CREA EL OBJETO CHANGO//
                 bool agregar_prod = 1;
                 while(agregar_prod && !chango.esta_lleno(cant_productos)){
                     Producto aux;
                     cout<<"Busque el producto de la gondola que desea agregar"<<endl;
-                    cout<<"el vector del chango esta en :"<<chango.obtener_producto_seleccionado()<<endl;
-                    tipo_busqueda(gondola);
-                    cout<<"el vector de gondola esta en :"<<gondola.obtener_producto_seleccionado()<<endl;
-                    chango.cargar_producto(gondola.obtener_productos()[gondola.obtener_producto_seleccionado()]);
+                    resultado_busqueda = tipo_busqueda(gondola);
+                    if(resultado_busqueda != -1){
+                        chango.cargar_producto(gondola.obtener_productos()[gondola.obtener_producto_seleccionado()]);
+                    }
                     cout<<"Si desea agregar otro producto ingrese 1"<<endl;
                     cin>>agregar_prod;
                 }
@@ -119,7 +119,6 @@ int main(){
                 chango.monto_a_pagar();
                 chango.ahorro_total();
 
-                //~chango; // LLAMAR AL DESTRUCTOR DEL CHANGO,SE LLAMA SOLO?//
             }
                 break;
 
@@ -131,8 +130,7 @@ int main(){
 
     }
 
-
-    //~gondola; // LLAMAR AL DESTURCTOR DE LA GONDOLA, SE LLAMA SOLO?//
+    archivo.close();
 
     return 0;
 

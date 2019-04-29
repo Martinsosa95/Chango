@@ -18,10 +18,16 @@ class Gondola{
 		//Pos: se creo la gondola con los valores indicados en los parametros.
 		Gondola(int nueva_cant_productos);
 
+        //Pre:El objeto gondola debe existir y el parametro debe ser un entero mayor o igual a cero
+    	//Post:Se modifico el atributo producto_seleccionado del chango
         void asignar_seleccion(int seleccion);
 
+        //Pre:El objeto gondola debe existir y el vector de productos debe estar cargado
+        //Post:Devuelve el productos guardado en la posicion producto_seleccionado de la gondola
         Producto obtener_producto() const;
 
+        //Pre:El objeto gondola debe existir
+    	//Post:Devuelve el valor del atributo producto_seleccionado
         int obtener_producto_seleccionado();
 
 		//Pre:Se debe poder leer el archivo ingresado con el formato debido,es decir debera tener un producto por linea.
