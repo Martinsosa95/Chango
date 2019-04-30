@@ -87,9 +87,9 @@ int main(){
             case 'd':
             {
                 int pos_producto = tipo_busqueda(gondola);
-                Producto producto_a_quitar;
-                producto_a_quitar.igualar_productos(gondola.obtener_productos()[pos_producto]);
-                gondola.quitar_producto(producto_a_quitar);
+                //Producto producto_a_quitar;
+                //producto_a_quitar.igualar_productos(gondola.obtener_productos()[pos_producto]);
+                gondola.quitar_producto(pos_producto);
             }
                 break;
 

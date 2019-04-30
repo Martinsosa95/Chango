@@ -48,9 +48,9 @@ class Gondola{
 		//Pre:Tiene que estar creado el objeto gondola.
 		//Pos:Va a devolver la posicion del producto en el vector gondola si es que se encuentra en la gondola y se muestra por pantalla sus datos
 		int buscar_codigo(int codigo);
-		//Pre:Tiene que estar creado el objeto gondola.
-		//Pos:Va a "eliminar" los productos del producto deseado.
-		void quitar_producto(Producto producto);
+		//Pre:Tiene que estar creado el objeto gondola y el parametro ingresado debe ser una posicion valida del vector productos de la gondola.
+		//Pos:El producto en la posicion pasada por parametro es borrado de la gondola.
+		void quitar_producto(int pos_producto_a_borrar);
 		//Descripcion:Destructor de la gondola
 		//Pre:La gondola debe existir.
 		//Post:La gondola fue destruida,es decir la memoria utilizada fue liberada.

@@ -86,16 +86,16 @@ int Gondola::buscar_codigo(int codigo){
 
 }
 
-void Gondola::quitar_producto(Producto producto){
+void Gondola::quitar_producto(int pos_producto_a_borrar){
 	string nombre_eliminado = "-----";
 	int codigo_eliminado = 0;
 	int precio_eliminado = 0;
 	bool oferta_eliminada = 0;
 
-	producto.asignar_nombre(nombre_eliminado);
-	producto.asignar_codigo(codigo_eliminado);
-	producto.asignar_precio(precio_eliminado);
-	producto.asignar_oferta(oferta_eliminada);
+	productos[pos_producto_a_borrar].asignar_nombre(nombre_eliminado);
+	productos[pos_producto_a_borrar].asignar_codigo(codigo_eliminado);
+	productos[pos_producto_a_borrar].asignar_precio(precio_eliminado);
+	productos[pos_producto_a_borrar].asignar_oferta(oferta_eliminada);
     cant_productos--;
 
     cout<< "El producto fue eliminado de la gondola"<< endl;
